@@ -83,7 +83,7 @@ class CachePugTemplates {
     debug(`compiling template located at ${filename}`);
     fs.readFile(filename, 'utf8', (err, string) => {
       if (err) return this.config.logger.error(err);
-      const options = { cache: true, filename };
+      const options = { cache: true, basedir: this.config.basedir, filename };
       if (pug.cache[filename])
         return this.config.logger.warn(
           `${filename} was already cached in pug.cache`
